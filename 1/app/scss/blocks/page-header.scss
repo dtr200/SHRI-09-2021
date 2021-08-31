@@ -1,0 +1,23 @@
+.page-header{
+    max-width: $width;
+    &--position{
+        padding: 43px 16px 0;
+    }
+}
+
+.page-header__title{    
+    @include font($size: $h1-size, $weight: bold);
+    margin-bottom: 20px;
+}
+
+@media(min-width: 992px){
+    .page-header{
+        &--position{
+            padding: 44px 0 0 168px;
+        }
+    }
+    .page-header__title{    
+        @include font($size: $h1-desktop-size, $weight: bold);
+        margin-bottom: 18px;
+    }
+}

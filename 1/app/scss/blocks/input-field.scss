@@ -1,0 +1,193 @@
+.input-field{
+    list-style-type: none;
+}
+.input-field__title,
+.input-field__subtitle{
+    @include font($size: $label-size, $height: $label-line-height, $space: .3px);
+}
+
+.input-field__subtitle{
+    position: relative;
+    top: 3px;
+    letter-spacing: .2px;
+}
+
+.input-field__title-wrapper{
+    @include flex($just: space-between);
+    margin-bottom: 8px;
+}
+
+.input-field__place,
+.input-field__list{
+    width: 100%;
+    height: 44px;
+    padding-left: 14px;
+    @include font($size: $main-text-size, $height: $main-line-height);    
+    border: none;
+    box-sizing: border-box;
+}
+
+.input-field__place{    
+    margin-bottom: 16px;
+    &:hover{
+        outline: 2px solid black;
+    }
+    &::placeholder{
+        color: $silver;
+    }
+    &--inline{
+        max-width: $inline-width;
+    }
+    &--address{
+        background: linear-gradient(to right, $semi-grey 48%, $dark-light 58%, $dark-light);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        padding-left: 36px;
+        margin-bottom: 0;   
+        outline: none;
+        letter-spacing: .3px;
+    }
+}
+
+.input-field__overlay{
+    background-color: $dark-light;
+}
+
+.input-field__place-wrapper{
+    position: relative;
+    &--address-one::before,
+    &--address-two::before{
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        position: absolute;
+        top: 14px;
+        left: 12px;
+    }
+    &--address-one::before{
+        background: radial-gradient(circle at center, transparent, transparent 4px, $red 4px, $red);
+    }
+    &--address-two::before{
+        background: radial-gradient(circle at center, transparent, transparent 4px, $white 4px, $white);
+    }
+}
+
+.input-field__button{
+    width: 119px;
+    height: 24px;
+    background-color: $semi-dark;
+    border: none;
+    border-radius: 2px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    opacity: .3;
+    color: $white;
+    outline: none;
+    cursor: pointer;
+    @include font($size: $list-text-size, $height: $label-line-height, $space: .25px);
+    &:hover{
+        opacity: 1;
+    }
+}
+
+.input-field__list{
+    outline: none;
+    appearance: none;
+    color: $silver;
+    cursor: pointer;
+    list-style-type: none;
+    position: absolute;
+    padding-left: 0;
+    top: 44px;
+    z-index: 1;
+
+    &--hide{
+        display: none;
+    }
+}
+
+.input-field__list-wrapper{
+    display: flex;
+    position: relative;
+    &::after{
+        content: '';
+        display: block;
+        background: url('/images/arrow.png');
+        width: 8px;
+        height: 5px;
+        position: absolute;
+        right: 19px;
+        top: 20px;
+    }
+}
+
+.input-field__list-container{
+    height: 44px;
+    background-color: $white;
+    position: relative;
+    cursor: pointer;
+    &::after{
+        content: '';
+        display: block;
+        background: url('/images/arrow.png');
+        width: 8px;
+        height: 5px;
+        position: absolute;
+        right: 16px;
+        top: 20px;
+    }
+}
+
+.input-field__display{
+    color: $silver;
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    white-space: nowrap;
+    &--fade{
+        background: linear-gradient(to right, black, black 20%, transparent 27%, transparent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;  
+    }     
+    &--selected{
+        color: $black;
+    }
+}
+
+.input-field__list-item{
+    padding: 5px 12px 6px;
+    background-color: $white;
+    @include font($size: $list-text-size, $height: $list-line-height);
+    color: $black;
+
+    &:hover{
+        background-color: $red;
+        color: $white;
+    }
+}
+
+.input-field__textarea{
+    width: 100%;
+    outline: none;
+    @include font($size: $main-text-size, $height: $main-line-height, $space: .25px);
+    padding: 13px 14px;
+    box-sizing: border-box;
+    
+    &::placeholder{
+        color: $silver;
+    }
+    &:hover{
+        outline: 2px solid black;
+    }
+}
+
+@media(min-width: 992px){
+    .input-field__display{
+        &--fade{
+            letter-spacing: -.28px;
+        }
+    }
+}

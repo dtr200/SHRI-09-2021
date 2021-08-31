@@ -1,0 +1,27 @@
+.page-main{
+    &--position{
+        padding: 0 16px 37px;
+    }
+}
+
+.page-main__order-form{
+    padding-top: 4px;
+    margin-bottom: 35px;
+}
+
+@media(min-width: 992px){
+    .page-main{
+        &--position{
+            padding-left: 170px;
+        }
+    }
+}
+
+@media(min-width: 1286px){
+    .page-main{
+        display: grid;
+        grid-template-columns: $width minmax(343px, 356px);
+        column-gap: 16px;
+        align-items: self-start;
+    }
+}
