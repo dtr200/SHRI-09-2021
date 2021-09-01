@@ -40,72 +40,72 @@
     </style>
 </head>
 
-<body>
+<body class="grid">
     <header class="page-header">
         <h1 class="page-header__logo">Магазин игрушек</h1>
-    </header>
-    <aside class="page-main__sidebar">
-        <div class="menu">
-            <span class="menu__title">Цвет</span>
-            <ul class="menu__list">
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Белый
-                    </label>
-                </li>
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Синий
-                    </label>
-                </li>
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Красный
-                    </label>
-                </li>
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Желтый
-                    </label>
-                </li>
-            </ul>
-        </div>
-        <div class="menu">
-            <span class="menu__title">Размер</span>
-            <ul class="menu__list">
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Большой
-                    </label>
-                </li>
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Маленький
-                    </label>
-                </li>
-                <li class="menu__item">
-                    <label class="menu__label">
-                        <input type="checkbox"
-                            class="menu__input">
-                        Средний
-                    </label>
-                </li>
-            </ul>
-        </div>
-    </aside>
-    <main class="page-main">        
+    </header>    
+    <main class="page-main">
+        <aside class="page-main__sidebar page-main__hidden">
+            <div class="menu">
+                <span class="menu__title">Цвет</span>
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Белый
+                        </label>
+                    </li>
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Синий
+                        </label>
+                    </li>
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Красный
+                        </label>
+                    </li>
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Желтый
+                        </label>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <span class="menu__title">Размер</span>
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Большой
+                        </label>
+                    </li>
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Маленький
+                        </label>
+                    </li>
+                    <li class="menu__item">
+                        <label class="menu__label">
+                            <input type="checkbox"
+                                class="menu__input">
+                            Средний
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </aside>      
         <section class="page-main__head page-head">
             <h1 class="page-head__title">Мягкие игрушки</h1>
             <p class="page-head__description">Все дети любят мягкие игрушки</p>
@@ -180,7 +180,23 @@
     </main>
     <footer class="page-footer"></footer>
     <style>
-        /* добавьте стили */
+        .page-header{
+            display: flex;
+            align-items: center;
+            height: 60px;
+            max-width: 516px;
+            background-color: var(--color-accent);
+            margin: 0 auto;
+        }
+        .page-header__logo{
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-left: 12px;
+        }
+        .page-main__hidden{
+            display: none;
+        }
     </style>
 </body>
 
