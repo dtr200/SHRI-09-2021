@@ -45,7 +45,7 @@
         <h1 class="page-header__logo">Магазин игрушек</h1>
     </header>    
     <main class="page-main">
-        <aside class="page-main__sidebar page-main__sidebar--hidden">
+        <aside class="page-main__sidebar sidebar">
             <div class="menu">
                 <span class="menu__title">Цвет</span>
                 <ul class="menu__list">
@@ -172,15 +172,14 @@
                     <button class="grid-list__button button">Купить</button>
                 </a>
             </li>
-        </ul>
-        <footer class="page-main__footer page-main__footer--hidden footer">
-            <div class="footer__container">
-                <a href="#" class="footer__link">Контакты</a>
-                <span class="footer__copyright">2021 Магазин игрушек</span>
-            </div>
-        </footer>
+        </ul>        
     </main>
-    <footer class="page-footer"></footer>
+    <footer class="page-footer footer">
+        <div class="footer__container">
+            <a href="#" class="footer__link">Контакты</a>
+            <span class="footer__copyright">2021 Магазин игрушек</span>
+        </div>
+    </footer>
     <style>
         body{
             --one-size: 12px;
@@ -213,8 +212,8 @@
             gap: var(--one-size);
             margin: var(--one-size) 0;
         }
-        .page-main__sidebar--hidden,
-        .page-main__footer--hidden{
+        .page-main__sidebar,
+        .page-footer{
             display: none;
         }
         .page-main__head,
@@ -348,6 +347,84 @@
                 /* calc(calc(100% / 3) - var(--one-size) * 2/3) 
                 calc(calc(100% / 3) - var(--one-size) * 2/3) 
                 calc(calc(100% / 3) - var(--one-size) * 2/3); */
+            }
+        }
+
+        @media (min-width: 960px){
+            .page-header,
+            .page-main,
+            .page-footer{
+                max-width: var(--desktop-width);
+            }
+            .page-main{
+                margin: var(--one-size) auto;
+            }
+            .page-main__sidebar,
+            .page-footer{
+                display: block;
+            }
+            .sidebar{
+                background-color: var(--color-background);
+                width: 240px;
+                padding: var(--one-size);
+                box-sizing: border-box;
+            }
+            .menu__list{
+                padding-left: var(--one-size);
+                list-style-type: none;
+            }
+            .menu__input{
+            }
+            .page-main__sidebar{
+                grid-row-start: 1;
+                grid-row-end: 5;
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+            .page-main__head,
+            .page-main__nav,
+            .page-main__category,
+            .page-main__grid-list{
+                grid-column-start: 2;
+                grid-column-end: 3;
+            }
+            .page-main__head{
+                grid-row-start: 1;
+                grid-row-end: 2;
+            }
+            .page-main__nav{
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+            .page-main__category{
+                grid-row-start: 3;
+                grid-row-end: 4;
+            }
+            .page-main__grid-list{
+                grid-row-start: 4;
+                grid-row-end: 5;
+            }
+            .footer{
+                height: calc(var(--one-size) * 4);
+                margin: 0 auto;
+                background-color:var(--color-background);
+                display: flex;
+                align-items: center;
+                padding: var(--one-size);
+                box-sizing: border-box;
+            }
+            .footer__container{
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                color: var(--color-dark-gray);
+            }
+            .footer__link,
+            .footer__copyright{
+                color: var(--color-dark-gray);
+            }
+            .footer__link{
+                text-decoration: none;
             }
         }
     </style>
