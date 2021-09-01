@@ -45,7 +45,7 @@
         <h1 class="page-header__logo">Магазин игрушек</h1>
     </header>    
     <main class="page-main">
-        <aside class="page-main__sidebar page-main__hidden">
+        <aside class="page-main__sidebar page-main__sidebar--hidden">
             <div class="menu">
                 <span class="menu__title">Цвет</span>
                 <ul class="menu__list">
@@ -107,8 +107,10 @@
             </div>
         </aside>      
         <section class="page-main__head page-head">
-            <h1 class="page-head__title">Мягкие игрушки</h1>
-            <p class="page-head__description">Все дети любят мягкие игрушки</p>
+            <div class="page-head__container">
+                <h1 class="page-head__title">Мягкие игрушки</h1>
+                <p class="page-head__description">Все дети любят мягкие игрушки</p>
+            </div>            
         </section>
         <ul class="page-main__nav nav">
             <li class="nav__item">
@@ -131,7 +133,7 @@
             <li class="grid-list__item">
                 <a href="#" class="grid-list__content">
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=" alt="image" width="60" height="60" class="grid-list__image">
-                    <span class="grid-list__title">Федор</span>
+                    <span class="grid-list__title">Фёдор</span>
                     <button class="grid-list__button button">Купить</button>
                 </a>
             </li>
@@ -171,7 +173,7 @@
                 </a>
             </li>
         </ul>
-        <footer class="page-main__footer footer">
+        <footer class="page-main__footer page-main__footer--hidden footer">
             <div class="footer__container">
                 <a href="#" class="footer__link">Контакты</a>
                 <span class="footer__copyright">2021 Магазин игрушек</span>
@@ -180,22 +182,142 @@
     </main>
     <footer class="page-footer"></footer>
     <style>
+        body{
+            --one-size: 12px;
+            --mobile-width: calc(var(--one-size) * 41);
+            --tablet-width: 768px;
+            --desktop-width: 960px;
+        }
         .page-header{
             display: flex;
             align-items: center;
-            height: 60px;
-            max-width: 516px;
+            height: calc(var(--one-size) * 5);
+            max-width: var(--mobile-width);
             background-color: var(--color-accent);
             margin: 0 auto;
         }
         .page-header__logo{
-            font-size: 24px;
+            font-size: calc(var(--one-size) * 2);
             font-weight: bold;
             color: white;
-            margin-left: 12px;
+            margin-left: var(--one-size);
         }
-        .page-main__hidden{
+        .page-main__sidebar--hidden,
+        .page-main__footer--hidden{
             display: none;
+        }
+        .page-main__head,
+        .page-main__nav,
+        .page-main__category,
+        .page-main__grid-list{            
+            margin: 0 auto;
+        }
+        .page-head{
+            max-width: var(--mobile-width);
+            height: calc(var(--one-size) * 8);
+            display: flex;
+        }
+        .page-head__container{
+            display: flex;
+            flex-direction: column;
+            padding: var(--one-size);
+        }
+        .page-head__title,
+        .page-head__description{
+            display: flex;
+            height: 100%;
+            margin: 0;
+        }
+        .page-head__title{
+            align-items: flex-end;
+            font-size: calc(var(--one-size) * 3);
+        }
+        .page-head__description{
+            align-items: center;
+        }
+        .nav{
+            max-width: var(--mobile-width);
+            display: grid;
+            gap: var(--one-size);
+            padding-left: 0;
+        }
+        .nav__item{
+            list-style-type: none;
+            height: calc(var(--one-size) * 6);
+            background-color: var(--color-background);
+        }
+        .nav__content{
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: var(--one-size);
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        .nav__title{
+            justify-self: flex-end;
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+        .nav__text{            
+            color: var(--color-dark-gray)
+        }
+        .category{
+            max-width: var(--mobile-width);
+            height: calc(var(--one-size) * 5);
+            padding: var(--one-size);
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+        }
+        .category__title{
+            margin: 0;
+        }
+        .grid-list{
+            display: grid;
+            max-width: var(--mobile-width);
+            gap: var(--one-size);
+            padding-left: 0;
+        }
+        .grid-list__item{
+            height: calc(var(--one-size) * 7);
+            padding: var(--one-size);
+            box-sizing: border-box;
+            list-style-type: none;
+            background-color: var(--color-background);
+        }
+        .grid-list__content{
+            display: grid;
+            grid-template-columns: calc(var(--one-size) * 6);
+            text-decoration: none;
+        }
+        .grid-list__image{
+            grid-row-start: 1;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        .grid-list__title{
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column-start: 2;
+            grid-column-end: 3;
+            text-decoration: underline;
+            color: var(--color-accent);
+        }
+        .grid-list__button{
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+        .button{
+            width: calc(var(--one-size) * 6);
+            height: calc(var(--one-size) * 2);
+            border: none;
+            font-size: var(--one-size);
+            font-weight: bold;
+            background-color: var(--color-light-gray);
         }
     </style>
 </body>
