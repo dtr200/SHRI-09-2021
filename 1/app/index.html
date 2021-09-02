@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body class="grid">
+<body>
     <header class="page-header">
         <h1 class="page-header__logo">Магазин игрушек</h1>
     </header>    
@@ -49,33 +49,21 @@
             <div class="menu">
                 <span class="menu__title">Цвет</span>
                 <ul class="menu__list">
-                    <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Белый
-                        </label>
+                    <li class="menu__item">                       
+                            <input type="checkbox" class="menu__input" id="box-w"> 
+                            <label class="menu__label" for="box-w">Белый</label>                           
                     </li>
-                    <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Синий
-                        </label>
+                    <li class="menu__item">                        
+                            <input type="checkbox" class="menu__input" id="box-b">
+                            <label class="menu__label" for="box-b">Синий</label>                           
                     </li>
-                    <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Красный
-                        </label>
+                    <li class="menu__item">                        
+                            <input type="checkbox" class="menu__input" id="box-r">
+                            <label class="menu__label" for="box-r">Красный</label>                            
                     </li>
-                    <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Желтый
-                        </label>
+                    <li class="menu__item">                        
+                            <input type="checkbox" class="menu__input" id="box-y">
+                            <label class="menu__label" for="box-y">Желтый</label>                                
                     </li>
                 </ul>
             </div>
@@ -83,25 +71,16 @@
                 <span class="menu__title">Размер</span>
                 <ul class="menu__list">
                     <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Большой
-                        </label>
+                        <input type="checkbox" class="menu__input" id="box-l">                            
+                        <label class="menu__label" for="box-l">Большой</label>
                     </li>
                     <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Маленький
-                        </label>
+                        <input type="checkbox" class="menu__input" id="box-s">                           
+                        <label class="menu__label" for="box-s">Маленький</label>
                     </li>
                     <li class="menu__item">
-                        <label class="menu__label">
-                            <input type="checkbox"
-                                class="menu__input">
-                            Средний
-                        </label>
+                        <input type="checkbox" class="menu__input" id="box-m">                            
+                        <label class="menu__label" for="box-m">Средний</label>
                     </li>
                 </ul>
             </div>
@@ -390,10 +369,10 @@
             .menu__item{
                 height: calc(var(--one-size) * 2);
                 display: flex;
-                align-items: flex-end;
+                align-items: center;
             }
             .menu__input{
-                margin: 0 0 0 4px;
+                margin: 0 3px 3px 4px;;
             }
             .page-main__sidebar{
                 grid-row-start: 1;
