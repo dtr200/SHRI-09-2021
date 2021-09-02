@@ -378,11 +378,22 @@
                 padding: var(--one-size);
                 box-sizing: border-box;
             }
+            .menu__title{
+                font-weight: bold;
+                line-height: calc(var(--one-size) * 2);
+            }
             .menu__list{
                 padding-left: var(--one-size);
                 list-style-type: none;
+                margin: 0;
+            }
+            .menu__item{
+                height: calc(var(--one-size) * 2);
+                display: flex;
+                align-items: flex-end;
             }
             .menu__input{
+                margin: 0 0 0 4px;
             }
             .page-main__sidebar{
                 grid-row-start: 1;
