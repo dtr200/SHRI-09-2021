@@ -1,5 +1,4 @@
-//module.exports = (amount, costsArray) => {
-function gteNumber(amount, costsArray){
+module.exports = (amount, costsArray) => {
     if(!amount) return '';
     const prices = {};
 
@@ -8,27 +7,36 @@ function gteNumber(amount, costsArray){
             prices[num] = [i + 1];
             return;
         }
-        prices[num].push(i + 1)
+        prices[num].push(i + 1);
     });
 
     const keys = Object.keys(prices)
-        .sort((a, b) => a - b);
+        .map(key => Number(key))
+        .sort((a, b) =>a - b);
 
-    let num;
-    if(keys[0] % amount){
-        // обычный расчет
-        num = `${prices[key[0]].sort((a, b) => b - a)[0]}`;
+    // Есть единица, значит можно составить самое длинное число из них
+    if(keys[0] === 1)
+        return String(prices[keys[0]][0]).repeat(amount);
+
+    // Поиск минимального числа
+    let minNum = Math.floor(amount/keys[0]),
+        minKey = keys[0];
+
+    const comparator = (minKey, key) => 
+        costsArray.lastIndexOf(key) > 
+        costsArray.lastIndexOf(minKey);        
+
+    for(let i = 1; i < keys.length; i++){
+        const currentMin = Math.floor(amount/keys[i]);
+        if(currentMin >= minNum && comparator(minKey, keys[i])){
+            minNum = currentMin;
+            minKey = keys[i];
+        }
     }
-    else{
-        // Посчитать случаи когда цены 1 нет и количество денег не
-        // делится на цело на минимальную сумму.
-        // Напр. am = 9, min = 5 и т.д. 
-    }
-    const result = num.repeat(amount);
+
+    const num = `${prices[minKey].sort((a, b) => b - a)[0]}`;
+    const repeats = Math.floor(amount/minKey);
+
+    const result = num.repeat(repeats);
     return result;
 }
-
-const amount = 3,
-    numbers = [2,2,2,2,2,2,2,2,3];
-
-gteNumber(amount, numbers);
