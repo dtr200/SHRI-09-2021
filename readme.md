@@ -157,3 +157,191 @@ false
 
 ### Формат вывода
 Строка с индексами. Если динаров у Коли не хватает ни на один символ, верните пустую строку.
+
+# 5. Сломаная спырка
+Марсианин Эстер отвеляет музом, который состоит из копитов. Чтобы запатить муз, его нужно спырсить. Результат спырки содержит момсы копитов в правильном порядке. Эстер установил для спырки муза специальный npm пакет.
+  
+Оказалось, что в коде npm пакета есть баги и на тестовых данных он выдает неверный результат. Пожалуйста, помогите Эстеру починить их, чтобы успешно спырсить муз!
+
+### Пример 1
+
+#### Ввод	
+[    
+  {    
+    "om": "SVKbtj",    
+    "moms": "uYkCFh",    
+    "pops": [    
+      "PpYWzC",    
+      "dfkUeN"    
+    ]    
+  },    
+  {    
+    "om": "PpYWzC",    
+    "moms": "TfzCpD",    
+    "pops": [    
+      "fEXMpe",    
+      "dfkUeN"    
+    ]    
+  },    
+  {    
+    "om": "fEXMpe",     
+    "moms": "qFAngG"     
+  },     
+  {     
+    "om": "dfkUeN",     
+    "moms": "qUAMjy"     
+  },     
+  {     
+    "om": "DnLHEG",     
+    "moms": "EycUXu",     
+    "pops": [     
+      "PpYWzC",     
+      "SVKbtj"     
+    ]     
+  }     
+]     
+
+#### Вывод
+qFAngGqUAMjyTfzCpDuYkCFhEycUXu
+
+### Пример 2
+
+#### Ввод	
+[    
+  {    
+    "om": "SVKbtj",    
+    "moms": "uYkCFh",    
+    "pops": [    
+      "PpYWzC",    
+      {    
+        "om": "dfkUeN",    
+        "moms": "qUAMjy"    
+      }    
+    ]    
+  },    
+  {    
+    "om": "fEXMpe",     
+    "moms": "qFAngG"     
+  },     
+  {     
+    "om": "DnLHEG",     
+    "moms": "EycUXu",     
+    "pops": [     
+      {     
+        "om": "PpYWzC",     
+        "moms": "TfzCpD",     
+        "pops": [     
+          "fEXMpe",     
+          "dfkUeN"     
+        ]     
+      },     
+      "SVKbtj"     
+    ]     
+  }     
+]     
+
+#### Вывод
+qFAngGqUAMjyTfzCpDuYkCFhEycUXu
+
+### Пример 3
+
+#### Ввод	
+[      
+  {      
+    "om": "SVKbtj",      
+    "moms": "uYkCFh",      
+    "pops": [      
+      "PpYWzC",      
+      "dfkUeN"      
+    ]      
+  },      
+  {      
+    "om": "PpYWzC",      
+    "moms": "TfzCpD",      
+    "pops": [      
+      {      
+        "om": "fEXMpe",      
+        "moms": "qFAngG"      
+      },      
+      "dfkUeN"      
+    ]      
+  },      
+  {      
+    "om": "dfkUeN",      
+    "moms": "qUAMjy",      
+    "pops": [      
+      {      
+        "om": "DnLHEG",      
+        "moms": "EycUXu",      
+        "pops": [   
+          "PpYWzC",   
+          "SVKbtj"   
+        ]   
+      }   
+    ]   
+  }   
+]   
+   
+#### Вывод
+ShkaQCnErbKZdqsjX
+  
+### Пример 4
+
+#### Ввод	
+[     
+  {     
+    "om": "SVKbtj",     
+    "moms": "uYkCFh",     
+    "pops": [     
+      "PpYWzC",     
+      "dfkUeN"     
+    ]     
+  },     
+  {     
+    "om": "PpYWzC",     
+    "moms": "TfzCpD"     
+  },     
+  {     
+    "om": "DnLHEG",     
+    "moms": "EycUXu",     
+    "pops": [     
+      "PpYWzC",     
+      "SVKbtj"     
+    ]     
+  }     
+]     
+   
+#### Вывод
+GTjkzarWpDEcLegKy-dfkUeN
+
+### Пример 5
+
+#### Ввод	
+[      
+  {      
+    "om": "SVKbtj",      
+    "moms": "uYkCFh",      
+    "pops": [      
+      {      
+        "om": "PpYWzC",      
+        "moms": "TfzCpD"      
+      },      
+      "dfkUeN"      
+    ]      
+  },      
+  {      
+    "om": "PpYWzC",      
+    "moms": "TfzCpD"      
+  },      
+  {      
+    "om": "DnLHEG",      
+    "moms": "EycUXu",      
+    "pops": [      
+      "PpYWzC",    
+      "SVKbtj"    
+    ]    
+  }    
+]    
+   
+#### Вывод
+pxPdgDeKHRvuVCnWj-PpYWzC
