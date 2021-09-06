@@ -1,42 +1,48 @@
 module.exports = (amount, costsArray) => {
     if(!amount) return '';
-    const prices = {};
 
-    costsArray.forEach((num, i) => {
-        if(!prices[num]){
-            prices[num] = [i + 1];
+    const prices = {};
+    costsArray.forEach((price, i) => {
+        if(!prices[price]){
+            prices[price] = [i + 1];
             return;
         }
-        prices[num].push(i + 1);
+        prices[price].push(i + 1);
     });
-
-    const keys = Object.keys(prices)
-        .map(key => Number(key))
-        .sort((a, b) =>a - b);
-
-    // Есть единица, значит можно составить самое длинное число из них
-    if(keys[0] === 1)
-        return String(prices[keys[0]][0]).repeat(amount);
-
-    // Поиск минимального числа
-    let minNum = Math.floor(amount/keys[0]),
-        minKey = keys[0];
-
-    const comparator = (minKey, key) => 
-        costsArray.lastIndexOf(key) > 
-        costsArray.lastIndexOf(minKey);        
-
-    for(let i = 1; i < keys.length; i++){
-        const currentMin = Math.floor(amount/keys[i]);
-        if(currentMin >= minNum && comparator(minKey, keys[i])){
-            minNum = currentMin;
-            minKey = keys[i];
-        }
+    for(let key in prices){
+        prices[key].sort((a, b) => b - a);
+        prices[key] = prices[key][0]; 
     }
 
-    const num = `${prices[minKey].sort((a, b) => b - a)[0]}`;
-    const repeats = Math.floor(amount/minKey);
+    const nums = Object.entries(prices)
+        .sort((a, b) => Number(b[0]) - Number(a[0]));
 
-    const result = num.repeat(repeats);
-    return result;
+    const maxNums = Math.floor(amount/Number(nums[nums.length -1][0]));
+    const selected = nums[nums.length -1][0];
+    const result = [];
+    
+    if(maxNums > 0){
+        for(let i = 0; i < maxNums; i++)
+            result.push(nums[nums.length -1][1]);
+    }
+    let extra = amount % nums[nums.length -1][0];
+    nums.sort((a, b) => Number(b[1]) - Number(a[1]));
+    let index = 0;
+
+    while(extra > 0 && index < maxNums){
+        let flag = false,
+            temp = extra + Number(selected);
+        for(let i = 0; i < nums.length; i++){
+            if(Number(nums[i][0]) <= temp && nums[i][1] > nums[nums.length -1][1]){
+                result[index] = nums[i][1];
+                index++;
+                extra = temp - nums[i][0];
+                flag = true;
+                break;
+            }
+        }
+        if(!flag)
+            break;
+    }
+    return result.length === 0 ? '' : result.join(''); 
 }
