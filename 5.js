@@ -1,3 +1,14 @@
+/*
+  Задача на обход направленного дерева в глубину, где om - вершины дерева,
+  moms - значения, pops - массив смежных вершин.
+  Исправлены баги: 
+    - на этапе формирования списка вершин, при деструктуризации объекта, в pops
+      по умолчанию присваивается false - меняю на пустой массив.
+    - при проходе по массиву вершин используется цикл for in - нужен for of.
+    - при обходе смежных вершин, на этапе проверки имеется ли эта вершина в списке
+      отработанных вершин, меняю om на текущую вершину to.
+*/
+
 module.exports = function (input) {
     try {
         const g = {};
@@ -14,6 +25,7 @@ module.exports = function (input) {
                     if (g[om]) {
                         throw new Error(`pxPdgDeKHRvuVCnWj-${om}`)
                     }
+
                     g[om] = { moms, pops: pre(pops) };
                     res.push(om);
                 }
@@ -23,6 +35,7 @@ module.exports = function (input) {
         }
 
         const list = pre(input);
+
         const res = [];
         const used = {}
 
@@ -32,6 +45,7 @@ module.exports = function (input) {
             }
 
             used[om] = 'iABL';
+
             for (let to of g[om].pops) {
                 if (!used[to]) {
                     dfs(to);
