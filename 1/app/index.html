@@ -40,14 +40,16 @@
     </style>
 </head>
 
-<body>
+<body class="">
     <header class="page-header">
-        <h1 class="page-header__logo">Магазин игрушек</h1>
+        <p class="page-header__logo">Магазин игрушек</p>
     </header>    
     <main class="page-main">
         <aside class="page-main__sidebar sidebar">
             <div class="menu">
-                <span class="menu__title">Цвет</span>
+                <div class="menu__title-container">
+                    <span class="menu__title">Цвет</span>
+                </div>
                 <ul class="menu__list">
                     <li class="menu__item">                       
                             <input type="checkbox" class="menu__input" id="box-w"> 
@@ -68,7 +70,9 @@
                 </ul>
             </div>
             <div class="menu">
-                <span class="menu__title">Размер</span>
+                <div class="menu__title-container">
+                    <span class="menu__title">Размер</span>
+                </div>
                 <ul class="menu__list">
                     <li class="menu__item">
                         <input type="checkbox" class="menu__input" id="box-l">                            
@@ -87,10 +91,12 @@
         </aside>  
         <section class="page-main__content">
             <section class="page-main__head page-head">
-                <div class="page-head__container">
+                <div class="page-head__title-container">
                     <h1 class="page-head__title">Мягкие игрушки</h1>
+                </div>
+                <div class="page-head__description-container">
                     <p class="page-head__description">Все дети любят мягкие игрушки</p>
-                </div>            
+                </div>           
             </section>
             <ul class="page-main__nav nav">
                 <li class="nav__item">
@@ -175,7 +181,6 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             padding: 0;
         }
         .page-header,
@@ -192,19 +197,21 @@
         }
         .page-header{
             display: flex;
-            align-items: center;
-            height: calc(var(--one-size) * 5);            
+            flex-shrink: 0;
+            align-items: center;          
             background-color: var(--color-accent);
+            height: calc(var(--one-size) * 5);
             margin: 0 auto;
         }
         .page-header__logo{
             font-size: calc(var(--one-size) * 2);
             font-weight: bold;
             color: white;
-            margin-left: var(--one-size);
+            margin: 0 0 0 var(--one-size);
         }
         .page-main{
             display: flex;
+            flex: 1 0 auto;
             gap: var(--one-size);
             margin: var(--one-size) 0;
         }
@@ -226,28 +233,26 @@
         }
         .page-head{
             height: calc(var(--one-size) * 8);
-            display: flex;
-        }
-        .page-head__container{
-            display: grid;
             padding: var(--one-size);
-            padding: 0 0 0 12px;
-            grid-template-rows: 72% 8%;
+            box-sizing: border-box;
+        }
+        .page-head__title-container{
+            height: calc(var(--one-size) * 4);
+            display: flex;
+            align-items: center;
+        }
+        .page-head__description-container{
+            height: calc(var(--one-size) * 2);
+            display: flex;
+            align-items: center;
         }
         .page-head__title,
         .page-head__description{
-            display: flex;
             margin: 0;
         }
         .page-head__title{
             font-size: calc(var(--one-size) * 2.666);
-            justify-self: end;
-            align-self: center;
-            line-height: calc(var(--one-size) * 2);
-        }
-        .page-head__description{
-            align-self: flex-end;
-            line-height: var(--one-size);
+            line-height: 32px;
         }
         .nav{
             display: grid;
@@ -326,14 +331,16 @@
             align-self: flex-end;
         }
         .button{
-            width: calc(var(--one-size) * 6);
+            width: min-content;
             height: calc(var(--one-size) * 2);
             border: none;
             font-size: calc(var(--one-size) * 1.333);
             background-color: var(--color-light-gray);
+            padding: 0 var(--one-size);
         }
         .page-footer{
             max-width: var(--mobile-width);
+            flex: 0 0 auto;
         }
         .footer{
             height: calc(var(--one-size) * 4);
@@ -393,6 +400,7 @@
             .page-main{
                 height: 100%;                
                 margin: var(--one-size) auto;
+                flex: initial;
             }
             .page-main__content{
                 width: calc(var(--desktop-width) - 240px - var(--one-size));
@@ -405,6 +413,11 @@
                 width: 240px;
                 padding: var(--one-size);
                 box-sizing: border-box;
+            }
+            .menu__title-container{
+                height: calc(var(--one-size) * 2);
+                display: flex;
+                align-items: center;
             }
             .menu__title{
                 font-weight: bold;
