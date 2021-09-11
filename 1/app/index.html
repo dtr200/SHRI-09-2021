@@ -119,9 +119,9 @@
                 <li class="grid-list__item">
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=" alt="image" width="60" height="60" class="grid-list__image">
                     <div class="grid-list__text-container">
-                        <span class="grid-list__title">Фёдор</span>
+                        <a href="#" class="grid-list__title">Фёдор</a>
                         <button class="grid-list__button button">Купить</button>
-                    </div>                        
+                    </div>
                 </li>
                 <li class="grid-list__item">
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=" alt="image" width="60" height="60" class="grid-list__image">
@@ -135,8 +135,7 @@
                     <div class="grid-list__text-container">
                         <span class="grid-list__title">Адольф</span>
                         <button class="grid-list__button button">Купить</button>
-                    </div>
-                    
+                    </div>                        
                 </li>
                 <li class="grid-list__item">
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=" alt="image" width="60" height="60" class="grid-list__image">
@@ -156,7 +155,7 @@
                     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkMAYAADkANVKH3ScAAAAASUVORK5CYII=" alt="image" width="60" height="60" class="grid-list__image">
                     <div class="grid-list__text-container">
                         <span class="grid-list__title">Пушок</span>
-                        <button class="grid-list__button button">Купить</button> 
+                        <button class="grid-list__button button">Купить</button>
                     </div>                        
                 </li>
             </ul> 
@@ -305,13 +304,8 @@
             background-color: var(--color-background);
 
             display: flex;
-            column-gap: 12px;
+            column-gap: var(--one-size);
         }
-/*         .grid-list__content{
-            display: grid;
-            grid-template-columns: calc(var(--one-size) * 6);
-            text-decoration: none;
-        } */
         .grid-list__image{
             grid-row-start: 1;
             grid-row-end: 3;
@@ -319,7 +313,9 @@
             grid-column-end: 2;
         }
         .grid-list__text-container{
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .grid-list__title{
             grid-row-start: 1;
@@ -329,8 +325,6 @@
             text-decoration: underline;
             color: var(--color-accent);
             line-height: calc(var(--one-size) * 2);
-
-            display: block;
         }
         .grid-list__button{
             grid-row-start: 2;
@@ -340,15 +334,19 @@
             align-self: flex-end;
         }
         .button{
-            /* width: min-content; */
+            width: calc(var(--one-size) * 4);
             height: calc(var(--one-size) * 2);
-            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: none;
+            border-bottom: none;
+            border-left: 1px solid var(--color-light-gray);
+            border-right: 1px solid var(--color-light-gray);
             font-size: 16px;
             background-color: var(--color-light-gray);
             padding: 0 var(--one-size);
-
-            position: absolute;
-            bottom: 0;
+            box-sizing: content-box;            
         }
         .page-footer{
             max-width: var(--mobile-width);
@@ -368,7 +366,7 @@
             display: flex;
             justify-content: space-between;
             color: var(--color-dark-gray);
-            line-height: 24px;
+            line-height: calc(var(--one-size) * 2);
             align-items: center;
         }
         .footer__link,
